@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OrbitPlay</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo" onclick="navigateTo('home')">OrbitPlay</div>
+      <ul class="nav-links">
+        <li><a onclick="navigateTo('home')">Homepage</a></li>
+        <li><a onclick="navigateTo('library')">Library</a></li>
+      </ul>
+      <div class="user-area">
+        <span id="user-greeting"></span>
+        <a id="auth-link" onclick="navigateTo('login')">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Homepage -->
+  <section id="home" class="page-section active">
+    <div class="featured-game">
+      <div class="container featured-content">
+        <h1>Top 5 Games This Week</h1>
+        <ul id="top-games"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Library -->
+  <section id="library" class="page-section">
+    <div class="container store-section">
+      <h2>Game Library</h2>
+      <input type="text" id="search-bar" placeholder="Search games..." oninput="filterGames()">
+      <div class="game-grid" id="game-grid"></div>
+    </div>
+  </section>
+
+  <!-- Dev Section -->
+  <section id="dev" class="page-section">
+    <div class="auth-container">
+      <h2>Developer Upload</h2>
+      <input type="file" id="dev-upload" webkitdirectory directory multiple>
+      <button onclick="uploadFiles()">Upload</button>
+    </div>
+  </section>
+
+  <!-- Login -->
+  <section id="login" class="page-section">
+    <div class="auth-container">
+      <h2>Sign In / Sign Up</h2>
+      <div id="auth-message"></div>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="loginUser()">Sign In / Sign Up</button>
+    </div>
+  </section>
+
+  <!-- Game Player -->
+  <section id="game-player" class="page-section">
+    <div class="container game-area">
+      <h2 id="game-title"></h2>
+      <iframe id="game-frame"></iframe>
+      <button onclick="exitGame()">Exit Game</button>
+      <button onclick="toggleFullscreen()">Fullscreen</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 OrbitPlay</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
